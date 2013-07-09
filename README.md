@@ -24,7 +24,7 @@ If Vagrant is new to you, you might want to read the [Up And SSH](http://docs.va
 Configuration
 -------------
 
-Copy or move your supernova file into your project directory (which is most likely this very directory), making sure to remove the dot from the front of the file name. This way, you can easily edit your supernova config file on your host computer.
+Copy or move your supernova file into your project directory (which is most likely this very directory), with or without the dot in front of the file name.  Without the dot, it’s much easier to edit your supernova file in your host computer’s GUI.
 
 If you don’t have a supernova file yet, just create one in your project directory.
 

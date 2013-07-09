@@ -70,7 +70,13 @@ fi
 /usr/bin/chown --recursive $user:$user $source_dir
 
 # add symlink to .supernova file
-/usr/bin/ln -s $synced_dir/supernova $user_dir/.supernova
+if [ -f "$synced_dir/supernova" ]; then
+    /usr/bin/ln -s $synced_dir/supernova $user_dir/.supernova
+elif [ -f "$synced_dir/.supernova" ]; then
+    /usr/bin/ln -s $synced_dir/.supernova $user_dir/.supernova
+else
+    echo "[Whoops!] No supernova file found."
+fi
 
 # add "sn" as a bash alias to "supernova "
 echo -e '\nalias sn="/usr/bin/supernova"' >> $user_dir/.bash_profile
