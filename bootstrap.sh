@@ -28,6 +28,9 @@ echo ""
 # install rackspace-novaclient
 /usr/bin/pip install --upgrade --quiet rackspace-novaclient
 
+# install pycrypto, for CryptedFileKeyring support (used in supernova-keyring)
+/usr/bin/pip install --upgrade --quiet pycrypto
+
 /usr/bin/mkdir --parents $source_dir
 
 # install python-novaclient
@@ -50,6 +53,7 @@ else
 fi
 
 # install supernova
+
 if [ -d "$source_dir/supernova" ]; then
     cd $source_dir/supernova
     /usr/bin/git pull --quiet
