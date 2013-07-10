@@ -18,6 +18,10 @@ echo ""
 # python-devel is required to build the (optional) C extension for simplejson
 /usr/bin/yum --assumeyes --quiet install vim git python-pip python-devel
 
+# pycrypto is required for CryptedFileKeyring support,
+# which is necessary for supernova-keyring to encrypt passwords
+/usr/bin/pip install --upgrade --quiet pycrypto
+
 
 echo ""
 echo "*************************************************************************"
@@ -27,9 +31,6 @@ echo ""
 
 # install rackspace-novaclient
 /usr/bin/pip install --upgrade --quiet rackspace-novaclient
-
-# install pycrypto, for CryptedFileKeyring support (used in supernova-keyring)
-/usr/bin/pip install --upgrade --quiet pycrypto
 
 /usr/bin/mkdir --parents $source_dir
 
