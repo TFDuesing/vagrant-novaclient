@@ -77,11 +77,11 @@ fi
 # add symlink to .supernova file
 if [ -f "$synced_dir/supernova" ]; then
     if [ ! -h "$user_dir/.supernova" ]; then
-        /usr/bin/ln -s $synced_dir/supernova $user_dir/.supernova
+        /usr/bin/ln --symbolic $synced_dir/supernova $user_dir/.supernova
     fi
 elif [ -f "$synced_dir/.supernova" ]; then
     if [ ! -h "$user_dir/.supernova" ]; then
-        /usr/bin/ln -s $synced_dir/.supernova $user_dir/.supernova
+        /usr/bin/ln --symbolic $synced_dir/.supernova $user_dir/.supernova
     fi
 else
     echo "[Whoops!] No supernova file found."
