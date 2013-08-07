@@ -87,8 +87,8 @@ else
     echo "[Whoops!] No supernova file found."
 fi
 
-# add "sn" as a bash alias to "supernova "
-echo -e '\nalias sn="/usr/bin/supernova"' >> $user_dir/.bash_profile
+# add “sn” as a bash alias to “supernova”
+echo -e '\nalias sn=/usr/bin/supernova' >> $user_dir/.bash_profile
 
 
 echo ""
