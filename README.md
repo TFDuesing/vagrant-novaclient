@@ -1,7 +1,7 @@
 vagrant-novaclient
 ==================
 
-A configuration and bootstrap file for a Vagrant machine running python-novaclient in Fedora 18 on VirtualBox.
+A configuration and bootstrap file for a Vagrant machine running python-novaclient in Fedora 19 on VirtualBox.
 
 
 Prerequisites
