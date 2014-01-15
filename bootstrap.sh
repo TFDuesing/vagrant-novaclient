@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 user="$1"
 user_dir="/home/$user"
@@ -11,15 +11,11 @@ echo "  Updating and Installing Prerequisite Packages"
 echo "*************************************************************************"
 echo ""
 
-/usr/bin/yum --assumeyes update yum
-/usr/bin/yum --assumeyes --exclude=kernel* update
+yum --assumeyes update yum
+yum --assumeyes --exclude=kernel* update
 
 # python-devel is required to build the (optional) C extension for simplejson
-/usr/bin/yum --assumeyes install git python-devel python-pip
-
-# pycrypto is required for CryptedFileKeyring support,
-# which is necessary for supernova-keyring to encrypt passwords
-/usr/bin/pip install --quiet pycrypto
+yum --assumeyes install git python-devel python-pip
 
 
 echo ""
@@ -29,13 +25,13 @@ echo "*************************************************************************"
 echo ""
 
 # install rackspace-novaclient
-/usr/bin/pip install rackspace-novaclient
+pip install rackspace-novaclient
 
-# install python-novaclient
-/usr/bin/pip install --upgrade git+https://git.openstack.org/openstack/python-novaclient.git@master#egg=python-novaclient
+# install the latest python-novaclient from trunk
+pip install --upgrade git+https://git.openstack.org/openstack/python-novaclient.git@master#egg=python-novaclient
 
 # install supernova
-/usr/bin/pip install git+https://github.com/major/supernova.git@master#egg=supernova
+pip install git+https://github.com/major/supernova.git@master#egg=supernova
 
 # add symlink from supernova config file (with or withour the dot)
 # to ~/.supernova file
@@ -44,7 +40,7 @@ if [ -f "$synced_dir/supernova" ]; then
 elif [ -f "$synced_dir/.supernova" ]; then
   /usr/bin/ln --symbolic $synced_dir/.supernova $user_dir/.supernova
 else
-    echo "[Whoops!] No supernova file found."
+    echo "Whoops! No supernova file found."
 fi
 
 # add “sn” as a bash alias to “supernova”
